@@ -1,6 +1,6 @@
 <?php
 
-namespace WxLogin\Providers;
+namespace Www\WxPay\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
