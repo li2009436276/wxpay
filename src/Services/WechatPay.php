@@ -2,7 +2,6 @@
 
 namespace Www\WxPay\Services;
 
-use Curl\StrService\StrService;
 use WeChatPay\Builder;
 use WeChatPay\Crypto\Rsa;
 use WeChatPay\Util\PemUtil;
@@ -24,26 +23,36 @@ class WechatPay
      * @param $orderNo
      * @param $money 分
      * @param $des
+     * @param null $openId
      * @return mixed|void
      */
-    public function pay($orderNo,$money,$des){
+    public function pay($orderNo,$money,$des,$openId = null){
 
         $instance = $this->payBuildInstance();
+
+        $data = [
+            'mchid'        => config('wx_pay.mch_id'),
+            'out_trade_no' => $orderNo,
+            'appid'        => $this->appId,
+            'description'  => $des,
+            'notify_url'   => config('wx_pay.notify_url'),
+            'amount'       => [
+                'total'    => $money,
+                'currency' => 'CNY'
+            ]];
+
+            if ($openId) {
+
+                $data['payer'] = [
+                    "openid"=> $openId
+                ];
+            }
 
         try {
             $resp = $instance
                 ->chain($this->chain)
-                ->post(['json' => [
-                    'mchid'        => config('wx_pay.mch_id'),
-                    'out_trade_no' => $orderNo,
-                    'appid'        => $this->appId,
-                    'description'  => $des,
-                    'notify_url'   => config('wx_pay.notify_url'),
-                    'amount'       => [
-                        'total'    => $money,
-                        'currency' => 'CNY'
-                    ],
-                ]]);
+                ->post(['json' => $data
+                ]);
 
             //echo $resp->getStatusCode(), PHP_EOL;
              return json_decode($resp->getBody(),true);
