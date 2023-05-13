@@ -8,8 +8,19 @@
             "Www\\WxPay\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "li2009436276",
+            "email": "571816409@qq.com"
+        }
+    ],
     "minimum-stability": "dev",
     "require": {
         "wechatpay/wechatpay": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["Www\\WxPay\\Providers\\AppServiceProvider", "Www\\WxPay\\Providers\\RouteServiceProvider"]
+        }
     }
 }
