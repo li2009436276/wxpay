@@ -22,10 +22,11 @@ class WechatPay
     /**
      * 支付调起
      * @param $orderNo
+     * @param $money 分
      * @param $des
      * @return mixed|void
      */
-    public function pay($orderNo,$des){
+    public function pay($orderNo,$money,$des){
 
         $instance = $this->payBuildInstance();
 
@@ -39,7 +40,7 @@ class WechatPay
                     'description'  => $des,
                     'notify_url'   => config('wx_pay.notify_url'),
                     'amount'       => [
-                        'total'    => rand(1,100),
+                        'total'    => $money,
                         'currency' => 'CNY'
                     ],
                 ]]);
