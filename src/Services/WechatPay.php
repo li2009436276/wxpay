@@ -80,7 +80,7 @@ class WechatPay
         $merchantCertificateSerial = config('wx_pay.merchant_certificate_serial');
 
         // 从本地文件中加载「微信支付平台证书」，用来验证微信支付应答的签名
-        $platformCertificateFilePath = config('wx_pay.platform_secret.pem');;
+        $platformCertificateFilePath = config('wx_pay.platform_secret');;
         $platformPublicKeyInstance = Rsa::from($platformCertificateFilePath, Rsa::KEY_TYPE_PUBLIC);
 
         // 从「微信支付平台证书」中获取「证书序列号」
