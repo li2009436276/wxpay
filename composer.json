@@ -1,0 +1,15 @@
+{
+    "name": "www/wxpay",
+    "description": "微信支付",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Www\\WxPay\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "wechatpay/wechatpay": "dev-main"
+    }
+}
