@@ -28,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::middleware('web')
             ->namespace('WxLogin\Controllers\Web')
-            ->group(__DIR__.'/../routes/web.php');
+            ->group(__DIR__ . '/../routes/web.php');
 
 
         Route::prefix(config('wx.api_prefix'))
