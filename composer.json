@@ -10,6 +10,6 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "wechatpay/wechatpay": "dev-main"
+        "wechatpay/wechatpay": "^1.0"
     }
 }
