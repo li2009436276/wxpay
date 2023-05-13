@@ -6,8 +6,6 @@ use Curl\StrService\StrService;
 use WeChatPay\Builder;
 use WeChatPay\Crypto\Rsa;
 use WeChatPay\Util\PemUtil;
-use QrCode;
-use function App\Services\env;
 
 class WechatPay
 {
@@ -18,7 +16,7 @@ class WechatPay
     public function __construct($appId = null,$chain = null)
     {
         $this->chain = $chain ? : config('wx_pay.chain');
-        $this->appId = $appId  ? : config('wx_pay.app_Id');
+        $this->appId = $appId  ? : config('wx_pay.app_id');
     }
 
     /**

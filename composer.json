@@ -16,7 +16,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "wechatpay/wechatpay": "^1.0"
+        "wechatpay/wechatpay": "^1.0",
+        "www/curl": "^1.0"
     },
     "extra": {
         "laravel": {
