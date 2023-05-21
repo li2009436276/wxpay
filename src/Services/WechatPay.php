@@ -37,7 +37,7 @@ class WechatPay
             'description'  => $des,
             'notify_url'   => config('wx_pay.notify_url'),
             'amount'       => [
-                'total'    => $money,
+                'total'    => intval($money),
                 'currency' => 'CNY'
             ]];
 
