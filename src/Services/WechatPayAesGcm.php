@@ -40,10 +40,10 @@ class WechatPayAesGcm
      * @param $serial
      * @return array|false
      */
-    public static function verifySign($signature,$nonce,$serial){
+    public static function verifySign($signature,$nonce,$timestamp,$serial){
 
         $inWechatpaySignature = $signature;// 请根据实际情况获取
-        $inWechatpayTimestamp = time();// 请根据实际情况获取
+        $inWechatpayTimestamp = $timestamp;// 请根据实际情况获取
         $inWechatpaySerial = $serial;// 请根据实际情况获取
         $inWechatpayNonce = $nonce;// 请根据实际情况获取
         $inBody = file_get_contents('php://input');// 请根据实际情况获取，例如: file_get_contents('php://input');
